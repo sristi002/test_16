@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shelter.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Pet Shelter and Care</title>
+</head>
+<body>
+
+    <div id="nav-container"></div>
+    <div class="container9">
+        <h1>Pet Shelter and Care</h1>
+        <p>Provide shelter and care for dogs and cats for a short period of time.</p>
+        <form id="petForm">
+            <label for="petType">Pet Type:</label>
+            <select id="petType" name="petType">
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+            </select>
+
+            <label for="breed">Breed:</label>
+            <input type="text" id="breed" name="breed">
+
+            <label for="duration">Duration in Shelter (days):</label>
+            <input type="number" id="duration" name="duration">
+
+            <label for="disease">Any Disease:</label>
+            <input type="text" id="disease" name="disease">
+
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" id="weight" name="weight">
+
+            <label for="additionalInfo">Additional Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="thankYou" style="display: none;">
+            <p>Thank you! An agent will be in contact soon.</p>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+               // Load and insert the navigation using JavaScript
+               fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-container').innerHTML = data;
+            });
+
+        // Load and insert the footer using JavaScript
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+
+
+        const petForm = document.getElementById('petForm');
+        const thankYou = document.getElementById('thankYou');
+
+        petForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form submission
+
+            // You can process the form data here if needed
+
+            // Show the thank you message
+            petForm.style.display = 'none';
+            thankYou.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
